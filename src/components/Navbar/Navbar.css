@@ -1,115 +1,112 @@
-.navbar{
-    padding: 20px 0px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.navbar .logo{
-    width: 150px;
-}
-.navbar-menu{
-    display: flex;
-    gap: 20px;
-    list-style :none;
-    color: #49557e;
-    font-size : 18px;
-}
-.Navbar-right{
-    display: flex;
-    align-items: center;
-    gap: 40px;
+.navbar {
+  padding: 0 5vw;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation: slideDown 0.4s ease;
 }
 
-.navbar button{
-    background: transparent;
-    font-size: 16px;
-    color: #49557e;
-    border: 1px solid tomato;
-    padding: 10px 30px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.3s;
+.navbar .logo {
+  width: 130px;
 }
-.navbar button:hover{
-    background-color :#fff4f2;
+
+.navbar-menu {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
 }
-.navbar .active{
-  padding: 2px;
-  border-bottom: 2px solid #49557e;
 
+.navbar-menu a {
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition);
 }
-.navbar li{
-    cursor: pointer;
+
+.navbar-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width var(--transition);
 }
-   .Navbar-search_icon{
-    position: relative;
-    }
-  .Navbar-search_icon .dot{
-        position: absolute;
-        min-width: 10px;
-        min-height: 10px;
-        background-color: tomato;
-        border-radius: 5px;
-        top: -8px;
-        right: -8px;
-    }
 
-    @media (max-width: 1050px){
-        .navbar .logo{
-            width: 20px;
-        
-        }
-        .navbar-menu{
-            gap : 20px;
-        font-size: 17px;  
-         }
-        .Navbar-right{
-            gap: 30px;
+.navbar-menu a:hover,
+.navbar-menu a.active {
+  color: var(--primary);
+}
 
-        }
-        .Navbar-right img{
-            width: 22px;
+.navbar-menu a:hover::after,
+.navbar-menu a.active::after {
+  width: 100%;
+}
 
-        }
-        .Navbar-right button{
-            padding: 8px 25px;
+.Navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-        }
-    } 
-    
-    @media (max-width: 900px){
-        .navbar .logo{
-            width: 20px;
-        
-        }
-        .navbar-menu{
-            gap : 15;
-        font-size: 16px;  
-         }
-        .Navbar-right{
-            gap: 20px;
+.Navbar-search_icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
-        }
-        .Navbar-right img{
-            width: 20px;
+.Navbar-search_icon img {
+  width: 24px;
+  cursor: pointer;
+}
 
-        }
-        .Navbar-right button{
-            padding: 7px 20px;
-            font-size: 15px;
+.Navbar-search_icon .dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: var(--primary);
+  border-radius: 50%;
+  top: -4px;
+  right: -4px;
+  border: 2px solid var(--white);
+}
 
-        }
-    } 
-    
-    @media (max-width: 750){
-       
-        .navbar-menu{
-          display: none;
-          
-         }
-       
-    } 
+.navbar button {
+  background: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  letter-spacing: 0.3px;
+}
 
+.navbar button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
 
+@media (max-width: 900px) {
+  .navbar { padding: 0 4vw; }
+  .navbar-menu { gap: 20px; font-size: 14px; }
+  .Navbar-right { gap: 14px; }
+  .navbar button { padding: 8px 18px; font-size: 13px; }
+}
 
-     
+@media (max-width: 700px) {
+  .navbar-menu { display: none; }
+  .navbar .logo { width: 110px; }
+}

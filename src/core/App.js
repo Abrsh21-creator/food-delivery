@@ -1,0 +1,36 @@
+import '../styles/App.css';
+import Navbar from '../components/Navbar/Navbar';
+import { Route, Routes } from 'react-router-dom';
+import Home from '../pages/Home/Home';
+import Cart from '../pages/Cart/Cart';
+import Footer from "../components/Footer/Footer";
+import PlaceOrder from '../pages/PlaceOrder/PlaceOrder';
+import Login from '../components/Login/login';
+
+
+
+import { useState } from 'react';
+
+const App = () => {
+  const[showlogin, setShowlogin] = useState(false);
+  return (
+    <>
+   {showlogin ? <Login setShowlogin={setShowlogin} /> : <></>}
+
+      <div className='app'>
+        <Navbar  setShowlogin={setShowlogin} />
+        <div className="content">
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/order' element={<PlaceOrder />} />
+
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </>
+  );
+}
+
+export default App;
