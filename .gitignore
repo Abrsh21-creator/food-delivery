@@ -11,6 +11,9 @@
 # production
 /build
 
+# Kiro IDE
+.kiro/
+
 # misc
 .DS_Store
 .env.local
